@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://f6u681jkg65i"]
 
-[ext_resource type="Script" uid="uid://clvmwbycydg2x" path="res://enitites/player/player.gd" id="1_d1gyh"]
+[ext_resource type="Script" uid="uid://clvmwbycydg2x" path="res://enitites/fox/fox.gd" id="1_d1gyh"]
 [ext_resource type="Texture2D" uid="uid://ds30kcm5juwjl" path="res://resources/player/player.png" id="1_nfhfj"]
+[ext_resource type="Script" uid="uid://cq6fw3yt4pc3s" path="res://utils/action_planner/action_planner.gd" id="3_767ey"]
+[ext_resource type="Script" uid="uid://bn3ehxfwl0k76" path="res://utils/action_planner/actions/chop_tree/chop_tree.gd" id="4_0odj7"]
+[ext_resource type="Script" uid="uid://bmc0wruc0mjs8" path="res://utils/action_planner/goals/ignite_fire.gd" id="5_03byj"]
+[ext_resource type="Script" uid="uid://b1uq8q34hel5k" path="res://utils/action_planner/state_data.gd" id="5_213ls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1gyh"]
 radius = 5.0
@@ -250,12 +254,11 @@ transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTrans
 graph_offset = Vector2(40, 51)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d1gyh"]
-graph_offset = Vector2(-273, 187)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_5u413")
 nodes/StateMachine/position = Vector2(20, 140)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1386311775]
+[node name="Fox" type="CharacterBody2D" unique_id=1386311775]
 script = ExtResource("1_d1gyh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1029227302]
@@ -276,3 +279,20 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/MoveState/IdleState/blend_position = Vector2(0, 0)
 parameters/StateMachine/MoveState/RunState/blend_position = Vector2(0, 0)
+
+[node name="ActionPlanner" type="Node" parent="." unique_id=1363948163]
+script = ExtResource("3_767ey")
+
+[node name="Actions" type="Node" parent="ActionPlanner" unique_id=1981691576]
+
+[node name="ChopTreeAction" type="Node" parent="ActionPlanner/Actions" unique_id=1706078723]
+script = ExtResource("4_0odj7")
+
+[node name="Goals" type="Node" parent="ActionPlanner" unique_id=1314936430]
+
+[node name="IgniteFireGoal" type="Node" parent="ActionPlanner/Goals" unique_id=1537696656]
+script = ExtResource("5_03byj")
+
+[node name="StateData" type="Node" parent="ActionPlanner" unique_id=1591875154]
+script = ExtResource("5_213ls")
+metadata/_custom_type_script = "uid://b1uq8q34hel5k"

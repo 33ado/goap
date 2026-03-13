@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ds5loxkihs5qx"]
 
 [ext_resource type="Texture2D" uid="uid://desdpbtrwpvv2" path="res://resources/tree.png" id="1_sloxe"]
+[ext_resource type="Script" uid="uid://cyxeorjiatcjg" path="res://enitites/decorations/tree.gd" id="1_vafov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vafov"]
 radius = 26.076809
@@ -10,6 +11,7 @@ radius = 13.0
 height = 44.0
 
 [node name="Tree" type="StaticBody2D" unique_id=1077408442]
+script = ExtResource("1_vafov")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1159668493]
 texture = ExtResource("1_sloxe")
