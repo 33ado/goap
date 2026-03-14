@@ -4,23 +4,27 @@ class_name ActionPlanner
 @onready var parent := get_parent()
 var actions : Array = []
 var goals : Array = []
-var state_data: StateData
+@onready var state_data = $StateData
 
 var _current_plan : Array
 var _current_plan_step: int 
 var current_goal : Goal
 
 func _ready() -> void:
+	print(Utils.get_elements("FirTree"))
+	print(Utils.get_closest_element("FirTree", parent))
 	recursive_search(self)
 	
 func recursive_search(node: Node) -> void:
 	for child in node.get_children():
 		if child is Goal:
+			child.actor = parent
+			child.state_data = state_data
 			goals.append(child)
 		if child is Action:
+			child.actor = parent
+			child.state_data = state_data
 			actions.append(child)
-		if child is StateData:
-			state_data = child
 		
 		recursive_search(child)
 		
@@ -111,7 +115,7 @@ func _follow_plan(delta : float):
 	if _current_plan.size() == 0:
 		return
 		
-	var is_step_complete = _current_plan[_current_plan_step].perform(parent, delta)
+	var is_step_complete = _current_plan[_current_plan_step].perform(delta)
 	if is_step_complete and _current_plan_step < _current_plan.size() - 1:
 		_current_plan_step += 1
 
@@ -119,14 +123,14 @@ func _transform_tree_into_array(p):
 	var plans = []
 
 	if p.children.size() == 0:
-		plans.push_back({ "actions": [p.action], "cost": p.action.get_cost(state_data) })
+		plans.push_back({ "actions": [p.action], "cost": p.action.get_cost() })
 		return plans
 
 	for c in p.children:
 		for child_plan in _transform_tree_into_array(c):
 			if p.action.has_method("get_cost"):
 				child_plan.actions.push_back(p.action)
-				child_plan.cost += p.action.get_cost(state_data)
+				child_plan.cost += p.action.get_cost()
 			plans.push_back(child_plan)
 	return plans
 

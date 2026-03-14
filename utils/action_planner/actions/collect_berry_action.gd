@@ -1,8 +1,5 @@
-extends Node
-class_name Action
-
-var actor : Node2D
-var state_data : StateData
+extends Action
+class_name CollectBerryAction
 
 func is_valid() -> bool: 
 	return true

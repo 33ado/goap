@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://6fwlmf6xy56i"]
+
+[ext_resource type="Script" uid="uid://bjfnuqrnsv4uh" path="res://enitites/decorations/bush.gd" id="1_hnrsp"]
+[ext_resource type="Texture2D" uid="uid://0wntyy6pbpnc" path="res://resources/bush.png" id="1_ifrax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnrsp"]
+radius = 13.038404
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lh76k"]
+radius = 28.01785
+
+[node name="Bush" type="StaticBody2D" unique_id=505656064]
+script = ExtResource("1_hnrsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=210365454]
+texture = ExtResource("1_ifrax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1187473374]
+shape = SubResource("CircleShape2D_hnrsp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1282894565]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=392258737]
+shape = SubResource("CircleShape2D_lh76k")

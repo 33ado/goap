@@ -1,20 +1,19 @@
 extends Node
 
+var _elements : Array = []
+
 func get_elements(element_class) -> Array:
-	return get_tree().root.get_children().filter(func(n):
-		return n.is_class(element_class)
+	print(get_all_elements(get_tree().root))
+	return get_all_elements(get_tree().root).filter(func(n):
+		return # n.is_class(element_class)
 	)
 	
-func get_closest_element(element_class: String, blackboard : Dictionary) -> Node:
+func get_all_elements(root):
+	
+	
+func get_closest_element(element_class: String, actor : Node2D) -> Node:
 	var elements = get_elements(element_class)
 	if elements.is_empty():
 		return null
 		
-	return elements.min_by(func(e): return e.global_position.distance_to(blackboard.global_position))
-	
-
-func dicts_match_subset(dict1: Dictionary, dict2: Dictionary) -> bool:
-	for key in dict1.keys():
-		if key in dict2 and dict1[key] != dict2[key]:
-			return false
-	return true
+	return elements.min_by(func(e): return e.global_position.distance_to(actor.global_position))

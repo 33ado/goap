@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://f6u681jkg65i" path="res://enitites/fox/fox.tscn" id="1_syuel"]
 [ext_resource type="Texture2D" uid="uid://ea1i7py0jdcg" path="res://resources/dirt_tileset.png" id="2_65205"]
 [ext_resource type="PackedScene" uid="uid://ds5loxkihs5qx" path="res://enitites/decorations/tree.tscn" id="4_hrq6i"]
+[ext_resource type="PackedScene" uid="uid://6fwlmf6xy56i" path="res://enitites/decorations/bush.tscn" id="5_tbfq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrq6i"]
 texture = ExtResource("2_65205")
@@ -375,3 +376,5 @@ position = Vector2(358, 239)
 
 [node name="Tree5" parent="." unique_id=1668830725 instance=ExtResource("4_hrq6i")]
 position = Vector2(47, 299)
+
+[node name="Bush" parent="." unique_id=505656064 instance=ExtResource("5_tbfq4")]

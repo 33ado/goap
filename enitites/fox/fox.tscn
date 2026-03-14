@@ -4,8 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://ds30kcm5juwjl" path="res://resources/player/player.png" id="1_nfhfj"]
 [ext_resource type="Script" uid="uid://cq6fw3yt4pc3s" path="res://utils/action_planner/action_planner.gd" id="3_767ey"]
 [ext_resource type="Script" uid="uid://bn3ehxfwl0k76" path="res://utils/action_planner/actions/chop_tree/chop_tree.gd" id="4_0odj7"]
+[ext_resource type="Script" uid="uid://c10ix5xwbtbnu" path="res://utils/action_planner/actions/collect_berry_action.gd" id="5_1dcuj"]
 [ext_resource type="Script" uid="uid://bmc0wruc0mjs8" path="res://utils/action_planner/goals/ignite_fire.gd" id="5_03byj"]
 [ext_resource type="Script" uid="uid://b1uq8q34hel5k" path="res://utils/action_planner/state_data.gd" id="5_213ls"]
+[ext_resource type="Script" uid="uid://nfmtku7xfjle" path="res://utils/action_planner/goals/collect_food_goal.gd" id="6_fsigv"]
+[ext_resource type="Script" uid="uid://hw78j305n86p" path="res://utils/action_planner/goals/ignite_fire_action.gd" id="6_yke7b"]
+[ext_resource type="Script" uid="uid://sjsm3vju3lot" path="res://utils/action_planner/goals/hide_goal.gd" id="7_xgqqo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1gyh"]
 radius = 5.0
@@ -288,10 +292,22 @@ script = ExtResource("3_767ey")
 [node name="ChopTreeAction" type="Node" parent="ActionPlanner/Actions" unique_id=1706078723]
 script = ExtResource("4_0odj7")
 
+[node name="CollectBerryAction" type="Node" parent="ActionPlanner/Actions" unique_id=227988310]
+script = ExtResource("5_1dcuj")
+
+[node name="IgniteFireAction" type="Node" parent="ActionPlanner/Actions" unique_id=79066165]
+script = ExtResource("6_yke7b")
+
 [node name="Goals" type="Node" parent="ActionPlanner" unique_id=1314936430]
 
 [node name="IgniteFireGoal" type="Node" parent="ActionPlanner/Goals" unique_id=1537696656]
 script = ExtResource("5_03byj")
+
+[node name="CollectFoodGoal" type="Node" parent="ActionPlanner/Goals" unique_id=937131441]
+script = ExtResource("6_fsigv")
+
+[node name="HideGoal" type="Node" parent="ActionPlanner/Goals" unique_id=229428888]
+script = ExtResource("7_xgqqo")
 
 [node name="StateData" type="Node" parent="ActionPlanner" unique_id=1591875154]
 script = ExtResource("5_213ls")

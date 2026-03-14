@@ -1,11 +1,11 @@
 extends Goal
-class_name IgniteFireGoal
+class_name HideGoal
 
 func desired_state() -> Dictionary:
-	return { "has_wood": true, }
+	return { "afraid": false, }
 
 func is_valid() -> bool:
 	return true
 
 func get_priority() -> int:
-	return 3
+	return 5

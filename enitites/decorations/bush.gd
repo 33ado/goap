@@ -1,2 +1,2 @@
 extends StaticBody2D
-class_name FirTree
+class_name Bush
