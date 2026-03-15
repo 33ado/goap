@@ -1,11 +1,11 @@
 extends Goal
-class_name HideGoal
+class_name RelaxGoal
 
 func desired_state() -> Dictionary:
-	return { "afraid": false, }
+	return {}
 
 func is_valid() -> bool:
-	return state_data.get_value("afraid")
+	return true
 
 func get_priority() -> int:
-	return 5
+	return 1

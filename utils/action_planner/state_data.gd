@@ -2,9 +2,11 @@ extends Node
 class_name StateData
 
 var _state = {
-	"has_wood": false,
+	"has_wood": true,
+	"has_hunger": false,
 	"hunger": 100,
 	"afraid": false,
+	"fire_ignited": false,
 }
 
 func set_value(key, value):

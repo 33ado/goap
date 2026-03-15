@@ -11,8 +11,6 @@ var _current_plan_step: int
 var current_goal : Goal
 
 func _ready() -> void:
-	print(Utils.get_elements("FirTree"))
-	print(Utils.get_closest_element("FirTree", parent))
 	recursive_search(self)
 	
 func recursive_search(node: Node) -> void:
@@ -40,9 +38,8 @@ func _process(delta: float) -> void:
 	
 
 func plan():
-	print("Goal: %s" % current_goal.get_class())
+	print("Goal: %s" % current_goal)
 	var desired_state = current_goal.desired_state().duplicate()
-	
 	if desired_state.is_empty():
 		return []
 		
@@ -67,14 +64,14 @@ func _build_plans(step : Dictionary) -> bool:
 	
 	var state = step.state.duplicate()
 	for s in state:
-		if state[s] == state_data.get(s):
+		if state[s] == state_data.get_value(s):
 			state.erase(s)
 			
 	if state.is_empty():
 		return true
 	
 	for action in actions:
-		if not action.is_valid():
+		if not action.is_valid() or action is Goal:
 			continue
 		
 		var should_use_action = false
@@ -107,23 +104,29 @@ func _get_cheapest_plan(plans : Array) -> Array:
 	var best_plan
 	for p in plans:
 		_print_plan(p)
-		if best_plan == null or p.cost < best_plan.cost:
+		if not best_plan or p.cost < best_plan.cost:
 			best_plan = p
-	return best_plan.actions
+	return best_plan.actions if best_plan else []
 	
 func _follow_plan(delta : float):
 	if _current_plan.size() == 0:
 		return
 		
 	var is_step_complete = _current_plan[_current_plan_step].perform(delta)
-	if is_step_complete and _current_plan_step < _current_plan.size() - 1:
-		_current_plan_step += 1
+	if is_step_complete:
+		var reward = _current_plan[_current_plan_step].reward()
+		for key in reward:
+			state_data.set_value(key, reward.get(key))
+			
+		if _current_plan_step < _current_plan.size() - 1:
+			_current_plan_step += 1
 
 func _transform_tree_into_array(p):
 	var plans = []
 
 	if p.children.size() == 0:
-		plans.push_back({ "actions": [p.action], "cost": p.action.get_cost() })
+		if p.action.has_method("get_cost"):
+			plans.push_back({ "actions": [p.action], "cost": p.action.get_cost() })
 		return plans
 
 	for c in p.children:
@@ -146,5 +149,5 @@ func _get_best_goal() -> Goal:
 func _print_plan(plan):
 	var ac = []
 	for a in plan.actions:
-		ac.push_back(a.get_class())
+		ac.push_back(a)
 	print({"cost": plan.cost, "actions": ac})

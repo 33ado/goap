@@ -2,10 +2,10 @@ extends Goal
 class_name IgniteFireGoal
 
 func desired_state() -> Dictionary:
-	return { "has_wood": true, }
+	return { "fire_ignited": true, }
 
 func is_valid() -> bool:
-	return true
+	return Utils.get_elements("CampFire").size() == 0
 
 func get_priority() -> int:
-	return 3
+	return 4

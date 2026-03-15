@@ -360,13 +360,13 @@ tile_map_data = PackedByteArray("AAAMAAIAAAAAAAAAAAAMAAMAAAAAAAEAAAALAAQAAAAFAAA
 tile_set = SubResource("TileSet_65205")
 
 [node name="Fox" parent="." unique_id=1386311775 instance=ExtResource("1_syuel")]
-position = Vector2(78, 66)
+position = Vector2(252, 285)
 
 [node name="Tree" parent="." unique_id=1077408442 instance=ExtResource("4_hrq6i")]
-position = Vector2(43, 64)
+position = Vector2(25, 207)
 
 [node name="Tree2" parent="." unique_id=392911419 instance=ExtResource("4_hrq6i")]
-position = Vector2(150, 161)
+position = Vector2(175, 276)
 
 [node name="Tree3" parent="." unique_id=405860219 instance=ExtResource("4_hrq6i")]
 position = Vector2(307, 88)
@@ -378,3 +378,10 @@ position = Vector2(358, 239)
 position = Vector2(47, 299)
 
 [node name="Bush" parent="." unique_id=505656064 instance=ExtResource("5_tbfq4")]
+position = Vector2(58, 84)
+
+[node name="Bush2" parent="." unique_id=1032884642 instance=ExtResource("5_tbfq4")]
+position = Vector2(412, 313)
+
+[node name="Bush3" parent="." unique_id=1227669863 instance=ExtResource("5_tbfq4")]
+position = Vector2(440, 99)

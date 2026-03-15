@@ -8,10 +8,10 @@ func get_cost() -> int:
 	return 1000
 
 func get_preconditions() -> Dictionary:
-	return {}
+	return { "has_wood": true }
 
 func reward() -> Dictionary:
-	return {}
+	return { "fire_ignited": true, "has_wood": false }
 	
 func perform(delta) -> bool:
-	return false
+	return actor.set_campfire(Vector2(100, 100))

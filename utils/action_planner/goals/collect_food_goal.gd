@@ -1,9 +1,12 @@
 extends Goal
 class_name CollectFoodGoal
 
+func is_valid() -> bool:
+	return state_data.get_value("hunger") < 75 and Utils.get_elements("Bush").size() != 0
+
 func desired_state() -> Dictionary:
 	return {
-		"hunger": 100,
+		"has_hunger": false,
 	}
 
 func get_priority() -> int:

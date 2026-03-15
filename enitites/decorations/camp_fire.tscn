@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://7ejbxwsw8gvs"]
+
+[ext_resource type="Texture2D" uid="uid://dsrmt23clggr" path="res://resources/campfire_16x16.png" id="1_351r5"]
+[ext_resource type="Script" uid="uid://d1dk74kbthhb6" path="res://enitites/decorations/camp_fire.gd" id="1_exi54"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_351r5"]
+radius = 7.071068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0eij8"]
+radius = 15.033297
+
+[node name="CampFire" type="StaticBody2D" unique_id=162084122]
+script = ExtResource("1_exi54")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1526666550]
+texture = ExtResource("1_351r5")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203086064]
+shape = SubResource("CircleShape2D_351r5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=540183372]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2054584762]
+shape = SubResource("CircleShape2D_0eij8")
+
+[node name="Timer" type="Timer" parent="." unique_id=1083108408]
+wait_time = 10.0
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=893140387]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
