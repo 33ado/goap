@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Fox
 
 const SPEED = 75.0
 const CAMPFIRE_SCENE = preload("res://enitites/decorations/camp_fire.tscn")
@@ -32,7 +33,7 @@ func _update_blend_positions(direction_vector: Vector2) -> void:
 
 func move_to(pos: Vector2) -> bool:
 	var dist = global_position.distance_to(pos)
-	if dist < 50:
+	if dist < 1:
 		velocity = Vector2.ZERO
 		return true
 		
@@ -41,7 +42,7 @@ func move_to(pos: Vector2) -> bool:
 	return false
 	
 func set_campfire(pos: Vector2) -> bool:
-	if move_to(pos):
+	if move_to(pos + Vector2(0, 16)):
 		var campfire = CAMPFIRE_SCENE.instantiate()
 		campfire.global_position = pos
 		get_parent().add_child(campfire)

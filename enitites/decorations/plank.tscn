@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ckodkfs562uv4"]
+
+[ext_resource type="Script" uid="uid://ch1uslfwexgee" path="res://enitites/decorations/plank.gd" id="1_gmt23"]
+[ext_resource type="Texture2D" uid="uid://cil338e6a2fue" path="res://resources/Wooden Planks.png" id="1_nstw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2beal"]
+size = Vector2(16, 16)
+
+[node name="Plank" type="StaticBody2D" unique_id=1604790104]
+script = ExtResource("1_gmt23")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=846745334]
+texture = ExtResource("1_nstw5")
+hframes = 12
+vframes = 4
+frame = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2027862573]
+shape = SubResource("RectangleShape2D_2beal")

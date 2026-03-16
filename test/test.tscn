@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ea1i7py0jdcg" path="res://resources/dirt_tileset.png" id="2_65205"]
 [ext_resource type="PackedScene" uid="uid://ds5loxkihs5qx" path="res://enitites/decorations/tree.tscn" id="4_hrq6i"]
 [ext_resource type="PackedScene" uid="uid://6fwlmf6xy56i" path="res://enitites/decorations/bush.tscn" id="5_tbfq4"]
+[ext_resource type="PackedScene" uid="uid://cxev3m2ntoeae" path="res://enitites/bat/bat.tscn" id="6_s3n3v"]
+[ext_resource type="PackedScene" uid="uid://npdn8cgrtli7" path="res://enitites/decorations/hideout.tscn" id="7_kgdm3"]
+[ext_resource type="PackedScene" uid="uid://ckodkfs562uv4" path="res://enitites/decorations/plank.tscn" id="8_aeque"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrq6i"]
 texture = ExtResource("2_65205")
@@ -363,25 +366,46 @@ tile_set = SubResource("TileSet_65205")
 position = Vector2(252, 285)
 
 [node name="Tree" parent="." unique_id=1077408442 instance=ExtResource("4_hrq6i")]
-position = Vector2(25, 207)
+position = Vector2(48, 137)
 
 [node name="Tree2" parent="." unique_id=392911419 instance=ExtResource("4_hrq6i")]
-position = Vector2(175, 276)
+position = Vector2(311, 204)
 
 [node name="Tree3" parent="." unique_id=405860219 instance=ExtResource("4_hrq6i")]
-position = Vector2(307, 88)
+position = Vector2(437, 134)
 
 [node name="Tree4" parent="." unique_id=1893539477 instance=ExtResource("4_hrq6i")]
-position = Vector2(358, 239)
+position = Vector2(533, 221)
 
 [node name="Tree5" parent="." unique_id=1668830725 instance=ExtResource("4_hrq6i")]
-position = Vector2(47, 299)
+position = Vector2(82, 348)
 
 [node name="Bush" parent="." unique_id=505656064 instance=ExtResource("5_tbfq4")]
-position = Vector2(58, 84)
+position = Vector2(112, 44)
 
 [node name="Bush2" parent="." unique_id=1032884642 instance=ExtResource("5_tbfq4")]
-position = Vector2(412, 313)
+position = Vector2(420, 330)
 
 [node name="Bush3" parent="." unique_id=1227669863 instance=ExtResource("5_tbfq4")]
-position = Vector2(440, 99)
+position = Vector2(538, 70)
+
+[node name="Bat" parent="." unique_id=1191523220 instance=ExtResource("6_s3n3v")]
+position = Vector2(225, 91)
+
+[node name="Hideout" parent="." unique_id=1097940722 instance=ExtResource("7_kgdm3")]
+position = Vector2(102, 236)
+
+[node name="Plank" parent="." unique_id=1604790104 instance=ExtResource("8_aeque")]
+position = Vector2(166, 301)
+
+[node name="Plank2" parent="." unique_id=133861850 instance=ExtResource("8_aeque")]
+position = Vector2(329, 98)
+
+[node name="Plank3" parent="." unique_id=102239733 instance=ExtResource("8_aeque")]
+position = Vector2(41, 206)
+
+[node name="Plank4" parent="." unique_id=329129896 instance=ExtResource("8_aeque")]
+position = Vector2(446, 245)
+
+[node name="Hideout2" parent="." unique_id=1401935728 instance=ExtResource("7_kgdm3")]
+position = Vector2(555, 313)

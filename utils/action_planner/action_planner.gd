@@ -11,9 +11,9 @@ var _current_plan_step: int
 var current_goal : Goal
 
 func _ready() -> void:
-	recursive_search(self)
+	recursive_search()
 	
-func recursive_search(node: Node) -> void:
+func recursive_search(node: Node = self) -> void:
 	for child in node.get_children():
 		if child is Goal:
 			child.actor = parent

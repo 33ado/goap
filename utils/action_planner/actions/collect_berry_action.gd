@@ -15,7 +15,7 @@ func reward() -> Dictionary:
 	
 func perform(delta) -> bool:
 	var destination = Utils.get_closest_element("Bush", actor)
-	if actor.move_to(destination.global_position) and destination.collect_berrys(delta):
+	if actor.move_to(destination.global_position + Vector2(0, 24)) and destination.collect_berrys(delta):
 		destination.queue_free()
 		return true
 		
